@@ -1,0 +1,177 @@
+---
+title: "Fitness Assessment Report"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+abstract: ""
+keywords: ""
+output: 
+    pdf_document: 
+      toc: true
+      toc_depth: 3
+      fig_caption: true
+      latex_engine: xelatex
+      fig_width: 8
+      fig_height: 5
+documentclass: article
+fontsize: 12pt
+geometry: margin = 1in
+linkcolor: blue
+header-includes:
+    - \usepackage{color}
+    - \usepackage{amsmath, amssymb}
+    - \usepackage{lmodern}
+    - \usepackage{fontspec}
+params:
+  testValueList: NA
+  gender: NA
+  name: NA
+  age: NA
+  ID: NA
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=TRUE, error = FALSE, 
+                      results = 'asis', warning = FALSE, message=FALSE)
+# library(extrafont)
+# font_import(pattern = "Arial.ttf")
+```
+
+
+\newpage
+
+## Introduction
+
+The fitness assessment in which you participated provide data about the physical abilities that older adults (i.e., > 60 yrs of age) need to maintain mobility and physical independence. Older adults need to maintain adequate strength, endurance, flexibility, agility, and balance to participate in activities such as playing golf, hiking, or to carry out everyday tasks such as carrying a laundry basket, getting in and out of the bathtub on their own, or climbing stairs.
+ 
+The fitness assessment categories shown above (i.e., Above Average, Normal Range, Below Average, Low Functioning) are based on data from over 7,000 independent-living older adults aged 60 to 94 years. Your scores indicate how you compare to others of your same age and sex.
+ 
+If you scored in the ‘Above Average’ category your scores place you within the top 25% of the distribution of the scores for your age and sex (i.e., 75th percentile or higher).
+ 
+If you scored in the ‘Normal Range’ category your scores place you within the middle (i.e., 50%) of the distribution of the scores for your age and sex (i.e., between the 25th and 75th percentiles.)
+ 
+If you scored in the ‘Below Average’ category your scores place you within the bottom 25% of the distribution of the scores for your age and sex (i.e., 25th percentile or lower).
+ 
+If you scored in the ‘Low Functioning’ cattegory your scores indicate you are unable to meet the requirements for moderate functioning (e.g., take care of personal needs, do light housework, walk three to four blocks, etc.) which may put you at risk for losing physical independence. (Rikli & Jones, 2012)
+ 
+The “Functional Fitness Standard” for each age and sex group, as shown by the $\boxtimes$ symbol, represents the score needed to maintain functional mobility and physical fitness until late in life despite normal age-related declines. (Rikli & Jones, 2012) 
+ 
+This summary was adapted from Rikli, R.E. and Jones, C.J. (2013). “Senior Fitness Test Manual”. Champaign, IL: Human Kinetics.
+ 
+Reference:
+Rikli, R.E., & Jones, C.J. (2012). Development and validation of criterion-referenced clinically relevant fitness standards for maintaining physical independence in later years. The Gerontologist, 0,1-13. doi:10.1093/geront/gns071.
+
+
+\newpage
+
+## Tests
+
+### Chair Stand
+```{r CS, fig.cap = "Chair Stand Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$CS)){
+# if (is.na(params$testValueList$CS)){
+#   getBasicPlot(params$gender, "CS")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "CS"), 
+                  age = params$age, val = params$testValueList$CS, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "CS", size = 6)
+}
+```
+
+\newpage
+
+### Arm Curl
+```{r ARM, fig.cap = "Arm Curl Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$ARM)){
+# if (is.na(params$testValueList$ARM)){
+#   getBasicPlot(params$gender, "ARM")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "ARM"), 
+                  age = params$age, val = params$testValueList$ARM, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "ARM", size = 6)
+}
+```
+
+\newpage
+
+### 6-Minute Walk
+```{r WALK, fig.cap = "6-Minute Walk Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$WALK)){
+# if (is.na(params$testValueList$WALK)){
+#   getBasicPlot(params$gender, "WALK")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "WALK"), 
+                  age = params$age, val = params$testValueList$WALK, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "WALK", size = 6)
+}
+```
+
+\newpage
+
+### 2-Minute Step
+```{r STEP, fig.cap = "2-Minute Step Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$STEP)){
+# if (is.na(params$testValueList$STEP)){
+#   getBasicPlot(params$gender, "STEP")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "STEP"), 
+                  age = params$age, val = params$testValueList$STEP, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "STEP", size = 6)
+}
+```
+
+\newpage
+
+### Chair Sit-and-Reach
+```{r CHAIRSAR, fig.cap = "Chair Sit-and-Reach Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$CHAIRSAR)){
+# if (is.na(params$testValueList$CHAIRSAR)){
+#   getBasicPlot(params$gender, "CHAIRSAR")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "CHAIRSAR"), 
+                  age = params$age, val = params$testValueList$CHAIRSAR, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "CHAIRSAR", size = 6)
+}
+```
+
+\newpage
+
+### Back Scratch
+```{r BACK, fig.cap = "Back Scratch Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$BACK)){
+# if (is.na(params$testValueList$BACK)){
+#   getBasicPlot(params$gender, "BACK")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "BACK"), 
+                  age = params$age, val = params$testValueList$BACK, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "BACK", size = 6)
+}
+```
+
+\newpage
+
+### 8-Foot Up-and-Go
+```{r UAG, fig.cap = "8-Foot Up-and-Go Test", fig.align = 'center', fig.pos = 'h'}
+if (!is.na(params$testValueList$UAG)){
+# if (is.na(params$testValueList$UAG)){
+#   getBasicPlot(params$gender, "UAG")
+# } else {
+  add_new_point(getBasicPlot(genderType = params$gender, 
+                               testType = "UAG"), 
+                  age = params$age, val = params$testValueList$UAG, name = params$name, 
+                  ID = params$ID, genderType = params$gender, 
+                  testType = "UAG", size = 6)
+}
+```
+
+
